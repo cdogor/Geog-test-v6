@@ -604,9 +604,9 @@ def run_pipeline(text: str) -> dict:
     prompt = PROMPT.replace("{text}", text)
 
     r = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0,
+    model="openai/gpt-oss-120b",   # remplace llama-3.3-70b-versatile
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0,
     )
 
     data = safe_json(r.choices[0].message.content)
